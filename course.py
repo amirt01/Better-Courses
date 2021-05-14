@@ -73,6 +73,9 @@ class Course:
         self._prerequisites.remove(prerequisite)
 
     def __str__(self):
+        return str(self._section) + ' ' + str(self._code)
+
+    def __repr__(self):
         return f'section: {self._section}\n' \
                f'code: {self._code}\n' \
                f'title: {self._title}\n' \
