@@ -1,0 +1,136 @@
+[
+  {
+    "code": 112,
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      "ENGRMAE 135"
+    ],
+    "section": "ENGRMAE",
+    "title": "Propulsion",
+    "units": 4
+  },
+  {
+    "code": 135,
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      "ENGRMAE 130A"
+    ],
+    "section": "ENGRMAE",
+    "title": "Compressible Flow",
+    "units": 4
+  },
+  {
+    "code": "130A",
+    "corequisites": [
+      "ENGRMAE 91"
+    ],
+    "description": "",
+    "prerequisites": [
+      "PHYSICS 7C",
+      "MATH 2D",
+      "MATH 2E",
+      "MATH 3D",
+      [
+        "ENGRMAE 30",
+        "ENGRCEE 30",
+        "ENGR 30"
+      ],
+      [
+        "ENGRMAE 80",
+        "ENGRCEE 80",
+        "ENGR 80"
+      ]
+    ],
+    "section": "ENGRMAE",
+    "title": "Introduction to Fluid Mechanics",
+    "units": 4
+  },
+  {
+    "code": "7C",
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      "PHYSICS 2"
+    ],
+    "section": "PHYSICS",
+    "title": "Classical Physics",
+    "units": 4
+  },
+  {
+    "code": 2,
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      [
+        "MATH 2A",
+        "MATH 5A"
+      ]
+    ],
+    "section": "PHYSICS",
+    "title": "Introduction to Mathematical Methods for Physics",
+    "units": 4
+  },
+  {
+    "code": "2D",
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      [
+        "MATH 2B",
+        "MATH 5B"
+      ]
+    ],
+    "section": "MATH",
+    "title": "Multivariable Calculus",
+    "units": 4
+  },
+  {
+    "code": "2E",
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      [
+        "MATH 2D",
+        "MATH H2D"
+      ]
+    ],
+    "section": "MATH",
+    "title": "Multivariable Calculus",
+    "units": 4
+  },
+  {
+    "code": "3D",
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      [
+        "MATH 3A",
+        "MATH H3A"
+      ],
+      [
+        "MATH 2D",
+        "MATH H2D"
+      ],
+      "MATH 2B"
+    ],
+    "section": "MATH",
+    "title": "Elementary Differential Equations",
+    "units": 4
+  },
+  {
+    "code": "2B",
+    "corequisites": [],
+    "description": "",
+    "prerequisites": [
+      [
+        "Math 2A",
+        "Math 5A"
+      ]
+    ],
+    "section": "MATH",
+    "title": "Single-Variable Calculus",
+    "units": 4
+  }
+]
