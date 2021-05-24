@@ -23,6 +23,3 @@ class Catalog(set):
 
     def __str__(self):
         return '\n'.join(map(str, self))
-
-    def __repr__(self):
-        return '\n'.join(map(repr, self))

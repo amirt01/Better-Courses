@@ -1,6 +1,6 @@
 class Course:
     def __init__(self, section: str = '', code=0, title: str = '', units: int = 0, description: str = '',
-                 corequisites: list = None, prerequisites: list = None):
+                 design_units: int = 0, corequisites: list = None, prerequisites: list = None):
         self._section: str = str(section)
         try:
             self._code: int = int(code)
@@ -12,6 +12,10 @@ class Course:
         except ValueError:
             self._units: str = str(units)
         self._description: str = str(description)
+        try:
+            self._design_units: int = int(design_units)
+        except ValueError:
+            self._design_units: str = str(design_units)
         self._corequisites: list[str] = corequisites if corequisites else []
         self._prerequisites: list[str] = prerequisites if prerequisites else []
 
@@ -34,6 +38,10 @@ class Course:
     @property
     def description(self):
         return self._description
+
+    @property
+    def design_units(self):
+        return self._design_units
 
     @property
     def corequisites(self):
@@ -62,6 +70,10 @@ class Course:
     @description.setter
     def description(self, new_description):
         self._description = new_description
+
+    @design_units.setter
+    def design_units(self, new_design_units):
+        self._design_units = new_design_units
 
     def add_corequisite(self, corequisite):
         self._corequisites.append(corequisite)
