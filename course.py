@@ -7,7 +7,10 @@ class Course:
         except ValueError:
             self._code: str = str(code)
         self._title: str = str(title)
-        self._units: int = int(units)
+        try:
+            self._units: int = int(units)
+        except ValueError:
+            self._units: str = str(units)
         self._description: str = str(description)
         self._corequisites: list[str] = corequisites if corequisites else []
         self._prerequisites: list[str] = prerequisites if prerequisites else []
