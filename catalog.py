@@ -14,11 +14,11 @@ class Catalog(dict):
 
     def save_to_file(self, path: str):
         with open(path, 'w') as outfile:
-            outfile.write(jsons.dumps(self, strip_privates=True))
+            outfile.write(jsons.dumps(self.values(), strip_privates=True))
 
     def load_from_file(self, path: str):
         with open(path, 'r') as infile:
-            for course in jsons.loads(infile.read(), cls=dict[str, Course]).values():
+            for course in jsons.loads(infile.read(), cls=list[Course]):
                 self.add(course)
 
     def __str__(self):
