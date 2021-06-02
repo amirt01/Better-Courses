@@ -15,6 +15,10 @@ class Course:
         self._prerequisites = prerequisites if prerequisites else []
 
     @property
+    def name(self):
+        return self._section + str(self._code)
+
+    @property
     def section(self):
         return self._section
 

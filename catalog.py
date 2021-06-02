@@ -21,5 +21,8 @@ class Catalog:
             for course in jsons.loads(infile.read(), cls=list[Course]):
                 self.add(course)
 
+    def __getitem__(self, key):
+        return self._catalog[key]
+
     def __str__(self):
         return '\n'.join(map(str, self._catalog))
