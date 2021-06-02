@@ -3,18 +3,18 @@ import jsons
 from course import Course
 
 
-class Catalog(dict):
-    def __init__(self, path: str = '', *args, **kwargs):
-        super().__init__(*args, **kwargs)
+class Catalog:
+    def __init__(self, path: str = None):
+        self._catalog = {}
         if path:
             self.load_from_file(path)
 
     def add(self, course: Course):
-        self[course.section + ' ' + str(course.code)] = course
+        self._catalog[course.section + ' ' + str(course.code)] = course
 
     def save_to_file(self, path: str):
         with open(path, 'w') as outfile:
-            outfile.write(jsons.dumps(self.values(), strip_privates=True))
+            outfile.write(jsons.dumps(self._catalog.values(), strip_privates=True))
 
     def load_from_file(self, path: str):
         with open(path, 'r') as infile:
@@ -22,4 +22,4 @@ class Catalog(dict):
                 self.add(course)
 
     def __str__(self):
-        return '\n'.join(map(str, self))
+        return '\n'.join(map(str, self._catalog))
