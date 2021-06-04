@@ -87,4 +87,5 @@ class Course:
                f'title: {self._title}\n' \
                f'units: {self._units}\n' \
                f'description: {self._description}\n' \
-               f'prerequisites: {self._prerequisites}'
+               f'prerequisites: {self._prerequisites}\n' \
+               f'corequisites: {self._corequisites}'
