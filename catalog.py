@@ -1,5 +1,6 @@
 import jsons
 
+from dataclasses import asdict
 from course import Course
 from collections.abc import Mapping
 
@@ -24,7 +25,7 @@ class Catalog(Mapping):
 
     def save_to_file(self, path: str):
         with open(path, 'w') as outfile:
-            outfile.write(jsons.dumps(self.values(), strip_privates=True))
+            outfile.write(jsons.dumps(self.values()))
 
     def load_from_file(self, path: str):
         with open(path, 'r') as infile:
