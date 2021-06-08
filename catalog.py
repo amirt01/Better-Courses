@@ -1,6 +1,5 @@
-import jsons
+import json
 
-from dataclasses import asdict
 from course import Course
 from collections.abc import Mapping
 
@@ -21,16 +20,16 @@ class Catalog(Mapping):
         return len(self.store)
 
     def add(self, course: Course):
-        self.store[self._keytransform(course.section + ' ' + str(course.code))] = course
+        self.store[self._keytransform(str(course))] = course
 
     def save_to_file(self, path: str):
         with open(path, 'w') as outfile:
-            outfile.write(jsons.dumps(self.values()))
+            outfile.write(json.dumps([course.__dict__() for course in self.values()]))
 
     def load_from_file(self, path: str):
         with open(path, 'r') as infile:
-            for course in jsons.loads(infile.read(), cls=list[Course]):
-                self.add(course)
+            for course_dict in json.loads(infile.read()):
+                self.add(Course(*course_dict.values()))
 
     def _keytransform(self, key: str):
         return key.upper()
