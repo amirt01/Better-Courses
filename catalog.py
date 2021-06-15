@@ -1,26 +1,14 @@
 import json
 
 from course import Course
-from collections.abc import Mapping
+from attribute_map import AttributeMap
 
 
-class Catalog(Mapping):
+class Catalog(AttributeMap):
     def __init__(self, path: str = None):
-        self.store = dict()
+        super().__init__(key_attribute='name', key_transform=str.upper)
         if path:
             self.load_from_file(path)
-
-    def __getitem__(self, key: str):
-        return self.store[self._keytransform(key)]
-
-    def __iter__(self):
-        return iter(self.store)
-
-    def __len__(self):
-        return len(self.store)
-
-    def add(self, course: Course):
-        self.store[self._keytransform(str(course))] = course
 
     def save_to_file(self, path: str):
         with open(path, 'w') as outfile:
@@ -31,8 +19,8 @@ class Catalog(Mapping):
             for course_dict in json.loads(infile.read()):
                 self.add(Course(*course_dict.values()))
 
-    def _keytransform(self, key: str):
-        return key.upper()
 
-    def __str__(self):
-        return '\n'.join(map(str, self.store))
+if __name__ == '__main__':
+    import inspect
+
+    print(*inspect.getmembers(Catalog, inspect.isfunction), sep='\n')
