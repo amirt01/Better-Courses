@@ -3,27 +3,19 @@ from time import time
 
 def progress_bar(iterable, prefix='', suffix='', decimals=1, length=50, fill='█', print_end="\r"):
     """
-    Call in a loop to create terminal progress bar
-    @params:
-        iteration   - Required  : current iteration (Int)
-        total       - Required  : total iterations (Int)
-        prefix      - Optional  : prefix string (Str)
-        suffix      - Optional  : suffix string (Str)
-        decimals    - Optional  : positive number of decimals in percent complete (Int)
-        length      - Optional  : character length of bar (Int)
-        fill        - Optional  : bar fill character (Str)
-        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    Credit to @Greenstick on StackOverflow for the the general setup.
+    Changes: Added iteration timer
     """
     total = len(iterable)
     start_time = time()
 
     # Progress Bar Printing Function
     def printProgressBar(iteration):
-        delta_time = round((time() - start_time) / (iteration + 1), 2)
+        delta_time = (time() - start_time) / (iteration + 1)
         percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
         filled_length = int(length * iteration // total)
         bar = fill * filled_length + '-' * (length - filled_length)
-        print(f'\r{prefix} |{bar}| {percent}% {suffix}, {delta_time} it/s', end=print_end)
+        print(f'\r{prefix} |{bar}| {percent}% {suffix}, {delta_time:.2f} it/s, {iteration = }', end=print_end)
 
     # Initial Call
     printProgressBar(0)
